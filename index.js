@@ -24,7 +24,7 @@ console.log(size);
 
 var coll;
 var res = 10;
-var limit = 10;
+var limit = 1;
 
 var bruteFill = false;
 var drawMarchingSquares = true;
