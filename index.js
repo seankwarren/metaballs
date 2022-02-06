@@ -24,7 +24,7 @@ console.log(size);
 
 var coll;
 var res = 10;
-var limit = 20;
+var limit = 10;
 
 var bruteFill = false;
 var drawMarchingSquares = true;
@@ -232,6 +232,19 @@ function adjustCount(val) {
         metaballs.addBall();
     }
 
+}
+
+// Limit Slider
+var limitControlContainer = document.getElementById("limit-control-container");
+var limitInput = document.getElementById("limit");
+var limitMobile = document.getElementById('limit-mobile');
+limitInput.oninput = function() {
+    limit = this.value;
+    metaballs.update();
+}
+limitMobile.onclick = function() {
+    document.getElementById('mobile-metaballs-controls').style.display = 'none';
+    limitControlContainer.classList.toggle('show');
 }
 
 // Run Simulation Checkbox

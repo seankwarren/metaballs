@@ -11,6 +11,7 @@
         <div id="metaballs-controls-container">
             <div id="mobile-metaballs-controls">
                 <button id="resolution-mobile" >Resolution</button>
+                <button id="limit-mobile">Limit</button>
                 <button id="numBalls-mobile"># Balls</button>
                 <button id="toInterp-mobile">Interpolate</button>
                 <button id="toShowCircs-mobile">Circles</button>
@@ -21,7 +22,16 @@
                 <span class="metaballs-control-close"></span>
                 <div class="range-slider">
                     <label for="resolution"><p>Resolution</p></label>
-                    <input id="resolution" type="range" min="1" max="20" step="1" value="5"/>
+                    <input id="resolution" type="range" min="2" max="20" step="1" value="5"/>
+                    <span class="range-value"></span>
+                </div>
+            </div>
+
+            <div id="limit-control-container" class="metaballs-control metaballs-control-range">
+                <span class="metaballs-control-close"></span>
+                <div class="range-slider">
+                    <label for="limit"><p>Limit</p></label>
+                    <input id="limit" type="range" min="1" max="30" step="1" value="2" onchange="adjustCount()" oninput="adjustCount()"/>
                     <span class="range-value"></span>
                 </div>
             </div>
@@ -29,8 +39,8 @@
             <div id="numBalls-control-container" class="metaballs-control metaballs-control-range">
                 <span class="metaballs-control-close"></span>
                 <div class="range-slider">
-                    <label for="toInterp"><p># Balls</p></label>
-                    <input id="numBalls" type="range" min="1" max="100" step="1" value="12" onchange="adjustCount()" oninput="adjustCount()"/>
+                    <label for="numBalls"><p># Balls</p></label>
+                    <input id="numBalls" type="range" min="1" max="100" step="1" value="20" />
                     <span class="range-value"></span>
                 </div>
             </div>
