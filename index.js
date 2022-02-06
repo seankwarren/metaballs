@@ -204,7 +204,7 @@ var resolutionInput = document.getElementById("resolution");
 var resolutionMobile = document.getElementById('resolution-mobile');
 resolutionInput.oninput = function() {
     res = parseInt(this.value);
-    draw();
+    metaballs.update();
 }
 resolutionMobile.onclick = function() {
     document.getElementById('mobile-metaballs-controls').style.display = 'none';
@@ -217,7 +217,7 @@ var numBallsInput = document.getElementById("numBalls");
 var numBallsMobile = document.getElementById('numBalls-mobile');
 numBallsInput.oninput = function() {
     adjustCount(this.value);
-    draw();
+    metaballs.update();
 }
 numBallsMobile.onclick = function() {
     document.getElementById('mobile-metaballs-controls').style.display = 'none';
