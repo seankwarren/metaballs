@@ -144,8 +144,8 @@ function drawLine(x1,y1,x2,y2){
 
 function drawVLine(x){
     c.beginPath(); 
-    c.moveTo(x,0);
-    c.lineTo(x,size.height);
+    c.moveTo(x+0.5,0);
+    c.lineTo(x+0.5,size.height);
     c.lineWidth = 1;
     c.strokeStyle = "#b3b3b3"
     c.stroke();
