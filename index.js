@@ -50,7 +50,7 @@ function animate() {
     if (elapsed > fpsInterval) {
         then = now - (elapsed % fpsInterval);
         c.clearRect(0,0,canvas.width,canvas.height);
-        c.fillStyle = "green";
+        c.fillStyle = "#111111";
         c.fillRect(0,0,canvas.width,canvas.height);
         metaballs.update();
     }
@@ -70,53 +70,15 @@ function startAnimating() {
     animate();
 }
 
+// START-UP
 metaballs = new Metaball_Collection(10);
 startAnimating();
 
-// function setup() {
-//     var can = createCanvas(size.width, size.height);
-//     can.parent("metaballs");
-//     
-//     draw();
-// }
-
-// function draw() {
-//         clear();
-//         fill(10,50,70);
-//         rect(0,0,maxWidth,maxHeight);
-//         for (var j=0; j<coll.truthy.length; j++) {
-//             for (var i=0; i<coll.truthy[0].length; i++) { 
-//                 if (coll.truthy[j][i]) {
-//                     if (bruteFill) { // fill pixel
-//                         fillRect(i*res,j*res,res,res);
-//                     }
-//                     if (drawText && res>=4) { // draw '1'
-//                         drawText(`1`,(i+0)*res,(j+0)*res);
-//                     }
-//                 } else {
-//                     if (drawText && res>=4) { // draw '0'
-//                         drawText(`0`,(i+0)*res,(j+0)*res);
-//                     }
-//                 }
-//                 if (drawGrid && res>=4) { // grid vertical
-//                     drawVLine(i*res);
-//                 }
-//             }
-//             if (drawGrid && res>=4) { // grid horizontal
-//                 drawHLine(j*res);
-//             }
-//         }
-
-//         if (drawOrigCircles) {
-//             // draw actual circles
-//             coll.balls.forEach(ball=>{drawCircle(ball.pos.x,ball.pos.y,ball.r)})
-//         }
-
-//         // update physics
-//         coll.update();
-// }
-
 // ---------- Start Draw Helpers ---------- //
+function rgbToHex(r,g,b) {
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+}
+
 function fillRect(x,y,w,h){
     fill(85,85,85);
     stroke(0,a=0);
