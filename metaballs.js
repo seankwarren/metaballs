@@ -132,16 +132,22 @@ class Metaball_Collection {
             var mx2=0.5;
             var my1=0.5;
             var my2=0.5;
-            var r = 10;
-            var g = 10;
-            var g, b, color;
+            var r = 50;
+            var g = 50;
+            var b = 50;
+            var color, dist, cent, cmap;
             for (var j=0; j<this.types.length; j++) {
                 for (var i=0; i<=this.types[0].length; i++) {
                     if (this.types[j][i] != '0b0000' && this.types[j][i] != '0b1111') {  //0:NW, 1:NE, 2:SW, 3:SE)
-                        g = Math.floor((1-(res*i)/size.width)*255)
-                        b = Math.floor((res*i)/size.width*255)
+                        cent = Math.max(size.width,size.height)/2;
+                        dist =  Math.sqrt(((res*i)-cent)**2 + ((res*j)-cent)**2);
+                        cmap = dist/(cent*1.6);
+                        g = Math.floor((1-cmap)*255)
+                        b = Math.floor(cmap*255)
+                        // g = Math.floor((1-(res*i)/size.width)*255)
+                        // b = Math.floor((res*i)/size.width*255)
                         color = rgbToHex(r,g,b);
-                        console.log(r,g,b);
+                        console.log(cmap);
 
                         if (this.types[j][i] === '0b1000' || 
                             this.types[j][i] === '0b0111' || 
