@@ -19,7 +19,6 @@ var size = {
 canvas.width = size.width;
 canvas.height = size.height;
 var center = {x:size.width/2,y:size.height/2}
-console.log(size);
 // ---------- END GLOBAL SETUP ---------- //
 
 var coll;
@@ -119,7 +118,7 @@ startAnimating();
 
 // ---------- Start Draw Helpers ---------- //
 function fillRect(x,y,w,h){
-    fill(0,170,255);
+    fill(15,15,15);
     stroke(0,a=0);
     rect(x,y,w,h);
 }
