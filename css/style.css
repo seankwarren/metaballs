@@ -125,7 +125,7 @@ input::moz-focus-inner {
     margin: auto;
     top: -3px;
     left: 0;
-    background: rgba(10,50,70,.8);
+    background: rgba(15,15,15,.8);
     border: 1px solid #fff;
     box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.4);
 }
@@ -258,7 +258,7 @@ input::moz-focus-inner {
     .metaballs-control {
         display: none;
         position: absolute;
-        background: rgba(10,45,10,.8);
+        background: rgba(15,15,15,.8);
         width: 100%;
         padding: 0px 0px;
         margin: 0px;
