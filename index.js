@@ -118,7 +118,7 @@ startAnimating();
 
 // ---------- Start Draw Helpers ---------- //
 function fillRect(x,y,w,h){
-    fill(15,15,15);
+    fill(85,85,85);
     stroke(0,a=0);
     rect(x,y,w,h);
 }
@@ -131,12 +131,12 @@ function drawText(s,x,y){
     text(s,x,y);
 }
 
-function drawLine(x1,y1,x2,y2){
+function drawLine(x1,y1,x2,y2,color){
     c.beginPath(); 
     c.moveTo(x1,y1);
     c.lineTo(x2,y2);
     c.lineWidth = 1;
-    c.strokeStyle = "#ffffff"
+    c.strokeStyle = color || "#ffffff";
     c.stroke();
     c.closePath();
 }
