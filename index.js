@@ -32,7 +32,6 @@ var drawGrid = false;
 var drawOrigCircles = false;
 var drawInterp = true;
 var running = true;
-//var backgroundColor = rgba(10,50,70);
 
 function animate() {
     requestAnimationFrame(animate);
@@ -97,7 +96,7 @@ function drawLine(x1,y1,x2,y2,color){
     c.beginPath(); 
     c.moveTo(x1,y1);
     c.lineTo(x2,y2);
-    c.lineWidth = 1;
+    c.lineWidth = 2;
     c.strokeStyle = color || "#ffffff";
     c.stroke();
     c.closePath();

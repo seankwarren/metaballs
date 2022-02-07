@@ -24,11 +24,11 @@ class Metaball {
         var vy = this.vel.y;
         var r = this.r;
         // x-axis bounce
-        if (px+vx+r/2>=size.width || px+vx-r/2<=0) {
+        if (px+vx+r>=size.width || px+vx-r<=0) {
             this.vel.x = vx * (-1);
         }
         // y-axis bounce
-        if (py+vy+r/2>=size.height || py+vy-r/2<=0) {
+        if (py+vy+r>=size.height || py+vy-r<=0) {
             this.vel.y = vy * (-1);
         }
     }
@@ -133,14 +133,16 @@ class Metaball_Collection {
             var my1=0.5;
             var my2=0.5;
             var r = 10;
-            var g = 230;
-            var b = 230;
+            var g = 10;
+            var g, b, color;
             for (var j=0; j<this.types.length; j++) {
                 for (var i=0; i<=this.types[0].length; i++) {
                     if (this.types[j][i] != '0b0000' && this.types[j][i] != '0b1111') {  //0:NW, 1:NE, 2:SW, 3:SE)
-                        g = ((res*j)/size.width)*255
-                        b = (1-((res*j)/size.width))*255
-                        console.log(g,b);
+                        g = Math.floor((1-(res*i)/size.width)*255)
+                        b = Math.floor((res*i)/size.width*255)
+                        color = rgbToHex(r,g,b);
+                        console.log(r,g,b);
+
                         if (this.types[j][i] === '0b1000' || 
                             this.types[j][i] === '0b0111' || 
                             this.types[j][i] === '0b0110') {
@@ -148,7 +150,7 @@ class Metaball_Collection {
                                 mx = this.interpX(res*i,res*(i+1),res*j)/res;
                                 my = this.interpY(res*j,res*(j+1),res*i)/res;
                             }
-                            drawLine(res*i,res*(j+my),res*(i+mx),res*j,rgbToHex(r,g,b)); 
+                            drawLine(res*i,res*(j+my),res*(i+mx),res*j,color); 
                         }
                         if (this.types[j][i] === '0b0100' ||
                             this.types[j][i] === '0b1011' ||
@@ -157,7 +159,7 @@ class Metaball_Collection {
                                 mx = this.interpX(res*i,res*(i+1),res*j)/res;
                                 my = this.interpY(res*j,res*(j+1),res*(i+1))/res;
                             }
-                            drawLine(res*(i+mx),res*j,res*(i+1),res*(j+my),rgbToHex(r,g,b)); 
+                            drawLine(res*(i+mx),res*j,res*(i+1),res*(j+my),color); 
                         }
                         if (this.types[j][i] === '0b0010' ||
                             this.types[j][i] === '0b1101' ||
@@ -166,7 +168,7 @@ class Metaball_Collection {
                                 mx = this.interpX(res*i,res*(i+1),res*(j+1))/res;
                                 my = this.interpY(res*j,res*(j+1),res*(i))/res;    
                             }
-                            drawLine(res*i,res*(j+my),res*(i+mx),res*(j+1),rgbToHex(r,g,b)); 
+                            drawLine(res*i,res*(j+my),res*(i+mx),res*(j+1),color); 
                         }
                         if (this.types[j][i] === '0b0001' ||
                             this.types[j][i] === '0b1110' ||
@@ -175,7 +177,7 @@ class Metaball_Collection {
                                 mx = this.interpX(res*i,res*(i+1),res*(j+1))/res;
                                 my = this.interpY(res*j,res*(j+1),res*(i+1))/res; 
                             }
-                            drawLine(res*(i+mx),res*(j+1),res*(i+1),res*(j+my),rgbToHex(r,g,b)); 
+                            drawLine(res*(i+mx),res*(j+1),res*(i+1),res*(j+my),color); 
                         }
                         if (this.types[j][i] === '0b0011' || 
                             this.types[j][i] === '0b1100') {
@@ -183,7 +185,7 @@ class Metaball_Collection {
                                 my1 = this.interpY(res*j,res*(j+1),res*i)/res;
                                 my2 = this.interpY(res*j,res*(j+1),res*(i+1))/res;
                             }
-                            drawLine(res*i,res*(j+my1),res*(i+1),res*(j+my2),rgbToHex(r,g,b)); 
+                            drawLine(res*i,res*(j+my1),res*(i+1),res*(j+my2),color); 
                         }
                         if (this.types[j][i] === '0b0101' ||
                             this.types[j][i] === '0b1010') {
@@ -191,7 +193,7 @@ class Metaball_Collection {
                                 mx1 = this.interpX(res*i,res*(i+1),res*j)/res;
                                 mx2 = this.interpX(res*i,res*(i+1),res*(j+1))/res;        
                             }
-                            drawLine(res*(i+mx1),res*j,res*(i+mx2),res*(j+1),rgbToHex(r,g,b));
+                            drawLine(res*(i+mx1),res*j,res*(i+mx2),res*(j+1),color);
                         }
                     }
                     if (drawGrid && res>=4) { // grid vertical
